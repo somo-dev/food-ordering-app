@@ -7,7 +7,9 @@ import FeaturedCarousel from './components/FeaturedCarousel';
 import UAParser from "ua-parser-js";
 import { createBrowserRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
-import RestaurantCard from './shared/RestaurantCard';
+import AllRestaurantsTab from './components/AllRestaurantsTab';
+import Footer from './components/Footer';
+import SearchRestaurantsScreen from './components/SearchRestaurantsScreen';
 
 
 function App({deviceType}: any) {
@@ -19,8 +21,10 @@ function App({deviceType}: any) {
       <MainNavigation />
       <FeaturedCarousel deviceType={deviceType} />
       <Container className='my-4'>
-        <RestaurantCard />
+        <AllRestaurantsTab />
       </Container>
+      <SearchRestaurantsScreen />
+      <Footer />
     </div>
   );
 };

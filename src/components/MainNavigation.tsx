@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Navbar, Nav, Offcanvas, NavDropdown, Button, Form } from 'react-bootstrap';
-import { StyledBadge, navMenu } from '../assets/constants';
+import { StyledBadge, navMenu } from '../assets/data/constants';
 import logo from '../assets/images/hamburger.png'
 import { IconButton, Typography } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';

@@ -1,0 +1,37 @@
+$primary-text-color: #000000;
+$secondary-text-color: #ababab;
+
+.container{
+    max-width: 1400px !important;
+}
+.restaurant-name {
+    line-height: 1.2 !important;
+}
+
+.cusine-test-font {
+    font-size: small;
+    color: $secondary-text-color;
+    line-height: 1.4em;
+}
+.costForTwo-test-font{
+    font-size: .7em;
+    color: $primary-text-color;
+    line-height: 1.4em;
+}
+
+.pill {
+    border-radius: 35px;
+}
+
+.rating-star {
+    margin: 2px 0px 2px 0px;
+}
+.css-1oitmrd-MuiButtonBase-root-MuiCardActionArea-root:focus{
+    outline: none;
+}
+.offer-text{
+    color: #8A584B;
+}
+.quick-view-button:focus{
+    outline: none;
+}

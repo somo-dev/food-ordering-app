@@ -1,0 +1,16 @@
+.search-page{
+    width: 1000px;
+    justify-content: center;
+}
+.input-group-text {
+    border-radius: 0px 0.25rem 0.25rem 0px;
+    cursor: pointer;
+}
+.search-input-field::placeholder{
+    color: rgb(172, 172, 172);
+    font-size: 17px;
+}
+.popular-cuisines-text{
+    font-size: 20px;
+    font-weight: 500;
+}

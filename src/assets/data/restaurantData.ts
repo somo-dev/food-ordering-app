@@ -41,6 +41,26 @@ export const cards= [
                     select: false,
                     favorite: false,
                     tradeCampaignHeaders: [],
+                    aggregatedDiscountInfo: {
+                        header: "Flat ₹125 off | MATCHDEAL",
+                        shortDescriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        descriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        subHeader: "",
+                        headerType: 0,
+                        superFreedel: ""
+                    },
                     chain: [],
                     feeDetails: {
                         fees: [
@@ -145,6 +165,26 @@ export const cards= [
                     select: false,
                     favorite: false,
                     tradeCampaignHeaders: [],
+                    aggregatedDiscountInfo: {
+                        header: "Flat 30% off | MATCHDEAL",
+                        shortDescriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        descriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        subHeader: "",
+                        headerType: 0,
+                        superFreedel: ""
+                    },
                     chain: [],
                     feeDetails: {
                         fees: [
@@ -201,7 +241,7 @@ export const cards= [
                         iconType: "EMPTY"
                     },
                     promoted: false,
-                    avgRating: "4.1",
+                    avgRating: "3.5",
                     totalRatings: 10000,
                     new: false
                 },
@@ -251,7 +291,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "Flat ₹125 off",
+                        header: "Flat 60% off | MATCHDEAL",
                         shortDescriptionList: [
                             {
                                 meta: "Flat ₹125 off on orders above ₹249",
@@ -351,7 +391,7 @@ export const cards= [
                         iconType: "EMPTY"
                     },
                     promoted: true,
-                    avgRating: "4.4",
+                    avgRating: "4.9",
                     totalRatings: 10000,
                     new: false
                 },
@@ -403,7 +443,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "20% off",
+                        header: "20% off | ZOOPIT",
                         shortDescriptionList: [
                             {
                                 meta: "20% off | Use TRYNEW",
@@ -547,7 +587,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "40% off",
+                        header: "40% off | ZOOPIT",
                         shortDescriptionList: [
                             {
                                 meta: "40% off | Use TRYNEW",
@@ -694,6 +734,26 @@ export const cards= [
                     select: false,
                     favorite: false,
                     tradeCampaignHeaders: [],
+                    aggregatedDiscountInfo: {
+                        header: "Flat ₹125 off | MATCHDEAL",
+                        shortDescriptionList: [
+                            {
+                                meta: "Flat ₹50 off on orders above ₹249",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        descriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        subHeader: "",
+                        headerType: 0,
+                        superFreedel: ""
+                    },
                     chain: [],
                     feeDetails: {
                         fees: [
@@ -750,7 +810,7 @@ export const cards= [
                         iconType: "EMPTY"
                     },
                     promoted: false,
-                    avgRating: "4.3",
+                    avgRating: "3.8",
                     totalRatings: 10000,
                     new: false
                 },
@@ -800,7 +860,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "Flat ₹125 off",
+                        header: "Flat 25% off | MATCHDEAL",
                         shortDescriptionList: [
                             {
                                 meta: "Flat ₹125 off on orders above ₹249",
@@ -950,7 +1010,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "30% off",
+                        header: "30% off | ZOOPIT",
                         shortDescriptionList: [
                             {
                                 meta: "30% off | Use TRYNEW",
@@ -1045,7 +1105,7 @@ export const cards= [
                         iconType: "EMPTY"
                     },
                     promoted: false,
-                    avgRating: "4.1",
+                    avgRating: "3.9",
                     totalRatings: 5000,
                     new: false
                 },
@@ -1095,6 +1155,26 @@ export const cards= [
                     select: false,
                     favorite: false,
                     tradeCampaignHeaders: [],
+                    aggregatedDiscountInfo: {
+                        header: "Flat ₹75 off | MATCHDEAL",
+                        shortDescriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        descriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        subHeader: "",
+                        headerType: 0,
+                        superFreedel: ""
+                    },
                     chain: [],
                     feeDetails: {
                         fees: [
@@ -1198,7 +1278,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "10% off",
+                        header: "10% off | ZOOPIT",
                         shortDescriptionList: [
                             {
                                 meta: "10% off | Use PARTY",
@@ -1348,7 +1428,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "40% off",
+                        header: "40% off | MATCHDEAL",
                         shortDescriptionList: [
                             {
                                 meta: "40% off | Use TRYNEW",
@@ -1492,7 +1572,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "15% off",
+                        header: "15% off | ZOOPIT",
                         shortDescriptionList: [
                             {
                                 meta: "15% off | Use TRYNEW",
@@ -1639,7 +1719,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "15% off",
+                        header: "15% off | ZOOPIT",
                         shortDescriptionList: [
                             {
                                 meta: "15% off | Use MATCHPARTY",
@@ -1783,7 +1863,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "Flat ₹125 off",
+                        header: "Flat ₹125 off | MATCHDEAL",
                         shortDescriptionList: [
                             {
                                 meta: "Flat ₹125 off on orders above ₹249",
@@ -1904,8 +1984,8 @@ export const cards= [
                         "South Indian"
                     ],
                     tags: [],
-                    costForTwo: 20000,
-                    costForTwoString: "₹200 FOR TWO",
+                    costForTwo: 2000,
+                    costForTwoString: "₹20 FOR TWO",
                     deliveryTime: 30,
                     minDeliveryTime: 30,
                     maxDeliveryTime: 30,
@@ -1925,7 +2005,7 @@ export const cards= [
                     favorite: false,
                     tradeCampaignHeaders: [],
                     aggregatedDiscountInfo: {
-                        header: "10% off",
+                        header: "10% off | ZOOPIT",
                         shortDescriptionList: [
                             {
                                 meta: "10% off | Use MATCHPARTY",
@@ -2066,6 +2146,26 @@ export const cards= [
                     select: false,
                     favorite: false,
                     tradeCampaignHeaders: [],
+                    aggregatedDiscountInfo: {
+                        header: "Flat ₹125 off | MATCHDEAL",
+                        shortDescriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        descriptionList: [
+                            {
+                                meta: "Flat ₹125 off on orders above ₹249 | Use code MATCHDEAL125",
+                                discountType: "Flat",
+                                operationType: "RESTAURANT"
+                            }
+                        ],
+                        subHeader: "",
+                        headerType: 0,
+                        superFreedel: ""
+                    },
                     chain: [],
                     feeDetails: {
                         fees: [

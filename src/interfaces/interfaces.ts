@@ -7,3 +7,9 @@ export interface topCarouselBannersProps {
   id: number;
   imgUrl: string;
 }
+
+export interface TabPanelProps {
+  children?: React.ReactNode;
+  index: string;
+  value: string;
+}
