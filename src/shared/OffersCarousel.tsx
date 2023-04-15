@@ -8,15 +8,15 @@ const OffersCarousel = ({ offers }: any) => {
       return (
             <Container>
                   <Row className='d-flex justify-content-center my-2'>
-                        <Col>
+                        <Col className='px-4'>
                               <Carousel
                                     ssr
                                     itemClass="image-item"
                                     responsive={responsive}
-                                    arrows={true}
-                                    infinite={false}
+                                    arrows={false}
+                                    infinite={true}
                                     centerMode={false}
-                                    autoPlay={true}
+                                    autoPlay={false}
                               >
                                     {offers?.map((offer: any, index: number) => {
                                           return (

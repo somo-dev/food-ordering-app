@@ -6,6 +6,7 @@ import { foodOptionsDetails } from '../assets/data/restaurantFoodOptionsScreen'
 import { useParams } from 'react-router-dom'
 import { Divider } from '@mui/material'
 import OffersSection from '../shared/OffersSection'
+import Menu from './Menu'
 const RestaurantMenu = () => {
       const { restId } = useParams();
       // useEffect(()=> {
@@ -14,8 +15,8 @@ const RestaurantMenu = () => {
       //       }
       // }, []);
       return (<div className='menu-page mx-auto'>
-            {foodOptionsDetails?.filter((foodOptions: any)=> {
-                        return (foodOptions?.info?.uuid === restId);
+            {foodOptionsDetails?.filter((foodOptions: any) => {
+                  return (foodOptions?.info?.uuid === restId);
             }).map((foodOptions: any, index: number) => {
                   return (
                         <section key={index} className='menu-page'>
@@ -26,19 +27,34 @@ const RestaurantMenu = () => {
                   )
             })
             }
-            <Divider variant="middle" sx={{borderStyle:'dashed'}} />
-            {foodOptionsDetails?.filter((foodOptions: any)=> {
-                        return (foodOptions?.info?.uuid === restId);
+            <Divider variant="middle" sx={{ borderStyle: 'dashed' }} />
+            {foodOptionsDetails?.filter((foodOptions: any) => {
+                  return (foodOptions?.info?.uuid === restId);
             }).map((foodOptions: any, index: number) => {
                   return (
                         <section key={index} className='menu-page'>
-                              <Row className='px-5 pt-4 pb-4'>
+                              <Row className='px-5 pt-4 pb-2'>
                                     <OffersSection offerCategory={foodOptions?.offerCategory} />
                               </Row>
                         </section>
                   )
             })
             }
+            <Divider variant="middle" />
+            <Container>
+                  {foodOptionsDetails?.filter((foodOptions: any) => {
+                        return (foodOptions?.info?.uuid === restId);
+                  }).map((foodOptions: any, index: number) => {
+                        return (
+                              <section key={index} className='menu-page'>
+                                    <Row className='px-5 pt-4 pb-4'>
+                                          <Menu menuCategory={foodOptions?.menu} />
+                                    </Row>
+                              </section>
+                        )
+                  })
+                  }
+            </Container>
       </div>
       )
 }

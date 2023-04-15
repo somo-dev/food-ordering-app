@@ -9,15 +9,16 @@ const OffersSection = ({ offerCategory }: any) => {
             <>
                   <Col xs={2} sm={2} md={2} lg={2} xl={2} className='d-flex align-items-center' style={{ color: '#756552' }}>
                         <AlarmIcon fontSize='small' className='mr-2' />
-                        <span>{offerCategory?.slaString}</span>
+                        <span><b>{offerCategory?.slaString}</b></span>
                   </Col>
                   <Col xs={2} sm={2} md={2} lg={2} xl={2} className='d-flex align-items-center' style={{ color: '#756552' }}>
                         <AccountBalanceWalletIcon fontSize='small' className='mr-2' />
-                        <span>{offerCategory?.costForTwoMessage}</span>
+                        <span><b>{offerCategory?.costForTwoMessage}</b></span>
                   </Col>
-                  <Col xs={12} className='d-flex align-items-center py-3'>
+                  <Col xs={12} className='d-flex align-items-center py-2'>
                         <OffersCarousel offers={offerCategory?.offers} />
                   </Col>
+                  
             </>
       )
 }
