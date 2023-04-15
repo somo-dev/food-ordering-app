@@ -51,3 +51,4 @@ export const responsive = {
         paritialVisibilityGutter: 30
     }
 };
+export const imageStore = "https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/";

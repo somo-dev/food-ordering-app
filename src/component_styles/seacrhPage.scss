@@ -1,5 +1,5 @@
 .search-page{
-    width: 1000px;
+    max-width: 1000px;
     justify-content: center;
 }
 .input-group-text {
@@ -13,4 +13,11 @@
 .popular-cuisines-text{
     font-size: 20px;
     font-weight: 500;
+}
+.suggestions-cuisines-text{
+    font-size: 18px;
+    font-weight: 600;
+}
+.suggestions-cuisines-type{
+    font-family: monospace;
 }

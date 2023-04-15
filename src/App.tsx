@@ -5,42 +5,30 @@ import './App.css';
 import MainNavigation from './components/MainNavigation';
 import FeaturedCarousel from './components/FeaturedCarousel';
 import UAParser from "ua-parser-js";
-import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 import AllRestaurantsTab from './components/AllRestaurantsTab';
 import Footer from './components/Footer';
 import SearchRestaurantsScreen from './components/SearchRestaurantsScreen';
+import Root from './components/Root';
+import RestaurantMenu from './components/RestaurantMenu';
 
 
-function App({deviceType}: any) {
+function App() {
   const routes = createBrowserRouter([
-    {path: '/', }
+    {path: '/', element: <Root />, children: [
+      {index: true, element: <AllRestaurantsTab />},
+      {path: ':restId', element: <RestaurantMenu />},
+      {path: 'search', element: <SearchRestaurantsScreen />}
+    ]}
   ])
   return (
     <div className="App">
-      <MainNavigation />
-      <FeaturedCarousel deviceType={deviceType} />
-      <Container className='my-4'>
-        <AllRestaurantsTab />
-      </Container>
-      <SearchRestaurantsScreen />
-      <Footer />
+      <RouterProvider router={routes} />
     </div>
   );
 };
-App.getInitialProps = ({ req }: any) => {
-  let userAgent;
-  if (req) {
-    userAgent = req.headers["user-agent"];
-  } else {
-    userAgent = navigator.userAgent;
-  }
-  const parser = new UAParser();
-  parser.setUA(userAgent);
-  const result = parser.getResult();
-  const deviceType = (result.device && result.device.type) || "desktop";
-  return { deviceType };
-};
+
 export default App
 
 // export getProps: GetProps =  async 

@@ -45,6 +45,7 @@ const FeaturedCarousel = ({ deviceType }: any) => {
                     arrows= {true}
                     infinite={true}
                     centerMode={true}
+                    autoPlay={true}
                   >
                     {topCarouselBanners.map(image => {
                       return (

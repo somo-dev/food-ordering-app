@@ -1,0 +1,12 @@
+$primary-colour: #9C27B0;
+$secondary-colour: #7C7C7D;
+a {
+    text-decoration: none;
+    color: $secondary-colour;
+}
+
+a:hover,
+.active {
+    color: $primary-colour;
+    text-decoration: solid;
+}

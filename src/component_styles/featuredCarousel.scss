@@ -1,7 +1,13 @@
-
 .react-multi-carousel-item {
     width: 100% !important;
+    // &.grow {
+    //     transition: all .2s ease-in-out;
+    //     &:hover {
+    //         transform: scale(1.1);
+    //     }
+    // }
 }
+
 .react-multi-carousel-track {
     list-style: none;
     padding: 0;
@@ -13,14 +19,16 @@
     transform-style: preserve-3d;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
-    will-change: transform,transition;
+    will-change: transform, transition;
 }
+
 .react-multi-carousel-list {
     display: flex;
     align-items: center;
     overflow: hidden;
     position: relative;
 }
+
 .react-multiple-carousel__arrow {
     position: absolute;
     outline: 0;
@@ -29,15 +37,17 @@
     border-radius: 35px;
     z-index: 1000;
     border: 0;
-    background: rgba(0,0,0,.5);
+    background: rgba(0, 0, 0, .5);
     min-width: 43px;
     min-height: 43px;
     opacity: 1;
     cursor: pointer;
 }
+
 .react-multiple-carousel__arrow--left {
     left: calc(4% + 1px);
 }
+
 .react-multiple-carousel__arrow--right {
     right: calc(4% + 1px);
 }
