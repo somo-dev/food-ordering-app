@@ -1,4 +1,4 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Divider, Typography } from '@mui/material'
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Divider, Typography } from '@mui/material'
 import React from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Image } from 'semantic-ui-react';
@@ -7,6 +7,8 @@ import veg from '../assets/images/veg.png';
 import nonVeg from '../assets/images/nonVeg.png';
 import SubMenuItems from './SubMenuItems';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import '../component_styles/restaurantMenu.scss';
+
 const MenuItems = ({ menuItems }: any) => {
   const effectivePrice = menuItems?.card?.info?.price / 100;
   const [expanded, setExpanded] = React.useState<string | false>('Recommended');
@@ -19,7 +21,7 @@ const MenuItems = ({ menuItems }: any) => {
     {menuItems?.card &&
       <Container>
         <Row className='my-5'>
-          <Col xs={8} className='d-flex pl-4'>
+          <Col xs={6} md={8} className='d-flex pl-4'>
             <div>
               <Image
                 className='mb-2'
@@ -32,11 +34,11 @@ const MenuItems = ({ menuItems }: any) => {
               <Typography className='mb-2'>{menuItems?.card?.info?.description}</Typography>
             </div>
           </Col>
-          <Col xs={4} className='d-flex justify-content-end align-items-center pr-5'>
+          <Col xs={6} md={4} className='d-flex justify-content-end align-items-center pr-5'>
             {menuItems?.card?.info?.imageId &&
               <Image
                 draggable={false}
-                style={{ maxWidth: '130px', cursor: 'pointer', borderRadius: '7px' }}
+                style={{ width: '130px', height: '110px', cursor: 'pointer', borderRadius: '7px' }}
                 src={`${imageStore}${menuItems?.card?.info?.imageId}`}
               />}
             {!menuItems?.card?.info?.imageId && menuItems?.card &&
@@ -45,6 +47,11 @@ const MenuItems = ({ menuItems }: any) => {
                 style={{ maxWidth: '130px', cursor: 'pointer', borderRadius: '7px' }}
                 src={`${imageStore}Icons-Autosuggest/AS_Dish_3x`}
               />}
+          </Col>
+          <Col xs={12} className='d-flex justify-content-end align-items-center pr-5'>
+            <Button variant="contained" disableElevation sx={{ color: '#00AF73', backgroundColor: 'white', border: 1, height: '30px', width: '80px' }} className='add-items-button'>
+              <b>Add</b>
+            </Button>
           </Col>
         </Row>
         <Divider />

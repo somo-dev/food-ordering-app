@@ -8,7 +8,7 @@ export const cards = [
                 type: "F",
                 id: "237054",
                 name: "Cafe Bahar since 1973",
-                uuid: "32c2f8bc-b640-473a-a2a5-ce46fec0dd9c",
+                uuid: "5bc61a68-e76f-428b-bb81-da5bc19c0a46",
                 city: "3",
                 area: "Old Mla Quarters",
                 totalRatingsString: "10000+ ratings",
