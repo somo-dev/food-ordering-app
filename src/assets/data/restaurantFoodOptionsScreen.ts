@@ -3712,6 +3712,7 @@ export const foodOptionsDetails = [
                                                     name: "Tandoori Chicken",
                                                     category: "Starters",
                                                     imageId: "sjc2nmqsarexotmi4dpb",
+                                                    price: 21000,
                                                     inStock: 1,
                                                     variants: {},
                                                     variantsV2: {
@@ -4105,6 +4106,7 @@ export const foodOptionsDetails = [
                                 },
                                 {
                                     title: "Veg Starters",
+                                    vegClassifier: "VEG",
                                     itemCards: [
                                         {
                                             card: {
@@ -5805,6 +5807,7 @@ export const foodOptionsDetails = [
                                 },
                                 {
                                     title: "Veg Main Course",
+                                    vegClassifier: "VEG",
                                     itemCards: [
                                         {
                                             card: {
@@ -6297,7 +6300,7 @@ export const foodOptionsDetails = [
         info: {
             id: "25251",
             uuid: "3d80000d-209b-4f40-b4f1-542945fff926",
-            name: "Cafe Bahar since 1973",
+            name: "Hilton Restaurant",
             city: "Hyderabad",
             slugs: {
                 restaurant: "cafe-bahar-cafe-restaurant-panjagutta-banjara-hills",

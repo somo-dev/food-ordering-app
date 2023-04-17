@@ -24,9 +24,12 @@ span {
       background-color: whitesmoke !important;
 }
 .add-items-button_with-no-image {
-      transform: translate(-15px, -15px);
+      transform: translate(-19px, -15px);
 }
 .add-items-button_with-no-image:hover {
       box-shadow: 0 2px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1) !important;
       background-color: whitesmoke !important;
+}
+.rating-text{
+      font-size: 14px;
 }

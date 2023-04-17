@@ -8,7 +8,6 @@ import nonVeg from '../assets/images/nonVeg.png';
 import '../component_styles/restaurantMenu.scss';
 
 const SubMenuItems = ({ subMenuItems }: any) => {
-      console.log(subMenuItems);
       return (
             <>
                   <Container>
@@ -31,13 +30,13 @@ const SubMenuItems = ({ subMenuItems }: any) => {
                                     {subMenuItems?.card?.info?.imageId &&
                                           <Image
                                                 draggable={false}
-                                                style={{ maxWidth: '130px', height: '110px', cursor: 'pointer', borderRadius: '7px' }}
+                                                style={{ maxWidth: '130px', height: '130px', cursor: 'pointer', borderRadius: '7px' }}
                                                 src={`${imageStore}${subMenuItems?.card?.info?.imageId}`}
                                           />}
                                     {!subMenuItems?.card?.info?.imageId &&
                                           <Image
                                                 draggable={false}
-                                                style={{ maxWidth: '130px', height: '110px', cursor: 'pointer', borderRadius: '7px' }}
+                                                style={{ maxWidth: '130px', height: '120px', cursor: 'pointer', borderRadius: '7px' }}
                                                 src={`${imageStore}Icons-Autosuggest/AS_Dish_3x`}
                                           />}
                               </Col>

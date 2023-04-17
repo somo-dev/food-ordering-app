@@ -1,86 +1,111 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Divider, Typography } from '@mui/material'
-import React from 'react'
+import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Divider, Rating, Typography } from '@mui/material'
+import React, { useState } from 'react'
 import { Col, Container, Row } from 'react-bootstrap'
 import { Image } from 'semantic-ui-react';
 import { imageStore } from '../assets/data/constants';
-import veg from '../assets/images/veg.png';
-import nonVeg from '../assets/images/nonVeg.png';
 import SubMenuItems from './SubMenuItems';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import '../component_styles/restaurantMenu.scss';
+import RatingStarsSection from './RatingStarsSection';
+import AdditionalMenuOptionsModal from './AdditionalMenuOptionsModal';
+import VegClassifierIcon from './VegClassifierIcon';
 
-const MenuItems = ({ menuItems }: any) => {
-  const effectivePrice = menuItems?.card?.info?.price / 100;
-  const [expanded, setExpanded] = React.useState<string | false>('Recommended');
-
+const MenuItems = ({ menuItems, ...props }: any) => {
+  const [expanded, setExpanded] = useState<string | false>('Recommended');
+  const [currentFoodItemInfo, setcurrentFoodItemInfo] = useState<any>({});
+  const [showModal, setShowModal] = useState<boolean>(false);
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
+  const modalHandler = () => {
+    setcurrentFoodItemInfo({
+      title: menuItems?.card?.info?.name,
+      price: menuItems?.card?.info?.price,
+      itemAttribute: menuItems?.card?.info?.itemAttribute,
+      addons: menuItems?.card?.info?.addons,
+      variants: menuItems?.card?.info?.variantsV2
+    })
+    setShowModal(!showModal);
+
+  }
   return (<>
     {menuItems?.card &&
       <Container>
         <Row className='my-5'>
           <Col xs={6} md={8} className='d-flex pl-4'>
             <div>
-              <Image
-                className='mb-2'
-                draggable={false}
-                style={{ width: '20px', height: '20px' }}
-                src={menuItems?.card?.info?.itemAttribute?.vegClassifier === 'VEG' ? veg : nonVeg}
-              />
+              <VegClassifierIcon itemAttribute={menuItems?.card?.info?.itemAttribute} className='mb-2' />
               <Typography className='mb-2'><b>{menuItems?.card?.info?.name}</b></Typography>
-              <Typography className='mb-2'><b>₹ {effectivePrice}</b></Typography>
+              {menuItems?.card?.info?.price && <Typography className='mb-2'><b>₹ {menuItems?.card?.info?.price / 100}</b></Typography>}
+              {!menuItems?.card?.info?.price && <Typography className='mb-2'>Click Add and check price after customization</Typography>}
               <Typography className='mb-2'>{menuItems?.card?.info?.description}</Typography>
+              <RatingStarsSection
+                rating={parseFloat(menuItems?.card?.info?.ratings?.aggregatedRating?.rating)}
+                noOfRatings={menuItems?.card?.info?.ratings?.aggregatedRating?.ratingCountV2} />
             </div>
           </Col>
           <Col xs={6} md={4} className='d-flex justify-content-end align-items-center pr-5'>
             {menuItems?.card?.info?.imageId &&
               <Image
                 draggable={false}
-                style={{ width: '130px', height: '110px', cursor: 'pointer', borderRadius: '7px' }}
+                style={{ width: '140px', height: '145px', cursor: 'pointer', borderRadius: '7px' }}
                 src={`${imageStore}${menuItems?.card?.info?.imageId}`}
               />}
             {!menuItems?.card?.info?.imageId && menuItems?.card &&
               <Image
                 draggable={false}
-                style={{ maxWidth: '130px', cursor: 'pointer', borderRadius: '7px' }}
+                style={{ width: '130px', height: '145px', cursor: 'pointer', borderRadius: '7px' }}
                 src={`${imageStore}Icons-Autosuggest/AS_Dish_3x`}
               />}
           </Col>
           <Col xs={12} className='d-flex justify-content-end align-items-center pr-5'>
-            <Button variant="contained" disableElevation sx={{ color: '#00AF73', backgroundColor: 'white', border: 1, height: '30px', width: '80px' }} className='add-items-button'>
+            <Button onClick={modalHandler} variant="contained" disableElevation sx={{ color: '#00AF73', backgroundColor: 'white', border: 1, height: '30px', width: '80px' }} className='add-items-button'>
               <b>Add</b>
             </Button>
           </Col>
         </Row>
         <Divider />
+        {menuItems?.card?.info?.addons?.length && <AdditionalMenuOptionsModal       //where there are addon options in the  menu
+          title={currentFoodItemInfo.title}
+          price={currentFoodItemInfo.price}
+          itemAttribute={currentFoodItemInfo.itemAttribute}
+          addons={currentFoodItemInfo.addons}
+          variants={currentFoodItemInfo.variants}
+          show={showModal}
+          onHide={() => setShowModal(false)} />}
+        {!menuItems?.card?.info?.addons?.length && <AdditionalMenuOptionsModal  //where there are no addon options
+          title={currentFoodItemInfo.title}                                     // we need to add directly to cart
+          itemAttribute={currentFoodItemInfo.itemAttribute}
+          addons={currentFoodItemInfo.addons}
+          variants={currentFoodItemInfo.variants}
+          show={showModal}
+          onHide={() => setShowModal(false)} />}
       </Container>
     }
-    {
+    {                                           //for those accordions that have sub-menu items
       !menuItems?.card &&
       <Col xs={12}>
-        <div>
-          <Accordion className="mb-3" onChange={handleChange(menuItems?.title)}>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />} id={menuItems?.title}>
-              <Typography>{menuItems?.title}</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <Typography>
+          <div>
+            <Accordion className="mb-3" onChange={handleChange(menuItems?.title)}>
+              <AccordionSummary expandIcon={<ExpandMoreIcon />} id={menuItems?.title}>
+                <Typography className='mr-2'><b>{menuItems?.title}</b></Typography>
+                <Typography> <b>({menuItems?.itemCards?.length})</b></Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
 
-                {menuItems?.itemCards?.map((menuCategoryItem: any, index: number) => {
-                  console.log(menuCategoryItem);
-                  return (
-                    <SubMenuItems key={index} subMenuItems={menuCategoryItem} />
-                  )
-                })}
-              </Typography>
-            </AccordionDetails>
-          </Accordion>
+                  {menuItems?.itemCards?.map((menuCategoryItem: any, index: number) => {
+                    return (
+                      <SubMenuItems key={index} subMenuItems={menuCategoryItem} />
+                    )
+                  })}
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
 
-        </div>
-      </Col>
-    }
+          </div>
+      </Col>}
   </>
   )
 }

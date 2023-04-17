@@ -14,7 +14,7 @@ const MainNavigation = () => {
     return (
         <div>
             <Navbar bg="light" variant="light">
-                <Container>
+                <div className='d-flex justify-content-between mx-auto' style={{width: '1280px'}}>
                     <Navbar.Brand href="" >
                         <NavLink to={'/'} className='d-flex flex-row align-items-center'>
                             <img src={logo} style={{ 'width': '43px' }} />
@@ -36,8 +36,8 @@ const MainNavigation = () => {
                         </NavLink>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-                    {/* <Navbar.Collapse id="responsive-navbar-nav"> */}
-                    <Nav className="me-auto">
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="ml-auto">
                         <Nav.Link className='ml-4 d-flex align-items-center' href='/search'>
                             <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/search"}>
                                 <SearchIcon className='mr-2' />
@@ -73,8 +73,8 @@ const MainNavigation = () => {
                             </NavLink>
                         </Nav.Link>
                     </Nav>
-                    {/* </Navbar.Collapse> */}
-                </Container>
+                    </Navbar.Collapse>
+                </div>
             </Navbar>
         </div >
     )
