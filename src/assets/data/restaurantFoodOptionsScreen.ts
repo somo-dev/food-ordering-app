@@ -10316,6 +10316,7 @@ export const foodOptionsDetails = [
                                 },
                                 {
                                     title: "Veg Starters",
+                                    vegClassifier: "VEG",
                                     itemCards: [
                                         {
                                             card: {
@@ -12016,6 +12017,7 @@ export const foodOptionsDetails = [
                                 },
                                 {
                                     title: "Veg Main Course",
+                                    vegClassifier: "VEG",
                                     itemCards: [
                                         {
                                             card: {
@@ -12455,28 +12457,28 @@ export const foodOptionsDetails = [
                         }
                     }
                 },
-                {
-                    card: {
-                        card: {
-                            types: "type.googleapis.com/swiggy.presentation.food.v2.RestaurantLicenseInfo",
-                            type: "FSSAI",
-                            imageId: "fssai_final_edss9i",
-                            text: [
-                                "License No. 13621011001049"
-                            ]
-                        }
-                    }
-                },
-                {
-                    card: {
-                        card: {
-                            types: "type.googleapis.com/swiggy.presentation.food.v2.RestaurantAddress",
-                            name: "Meridian Restaurant",
-                            area: "Punjagutta",
-                            completeAddress: "6-3-694/1 &697, Panjagutta main road"
-                        }
-                    }
-                }
+                // {
+                //     card: {
+                //         card: {
+                //             types: "type.googleapis.com/swiggy.presentation.food.v2.RestaurantLicenseInfo",
+                //             type: "FSSAI",
+                //             imageId: "fssai_final_edss9i",
+                //             text: [
+                //                 "License No. 13621011001049"
+                //             ]
+                //         }
+                //     }
+                // },
+                // {
+                //     card: {
+                //         card: {
+                //             types: "type.googleapis.com/swiggy.presentation.food.v2.RestaurantAddress",
+                //             name: "Meridian Restaurant",
+                //             area: "Punjagutta",
+                //             completeAddress: "6-3-694/1 &697, Panjagutta main road"
+                //         }
+                //     }
+                // }
             ]
         }
     }
