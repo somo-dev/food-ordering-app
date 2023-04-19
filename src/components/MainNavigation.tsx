@@ -13,8 +13,8 @@ import '../component_styles/navBar.scss'
 const MainNavigation = () => {
     return (
         <div>
-            <Navbar bg="light" variant="light">
-                <div className='d-flex justify-content-between mx-auto' style={{width: '1280px'}}>
+            {/* <Navbar collapseOnSelect bg="light" expand='lg' variant="light">
+                <div className='d-flex justify-content-between mx-auto' style={{ width: '1280px' }}>
                     <Navbar.Brand href="" >
                         <NavLink to={'/'} className='d-flex flex-row align-items-center'>
                             <img src={logo} style={{ 'width': '43px' }} />
@@ -37,44 +37,110 @@ const MainNavigation = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="ml-auto">
-                        <Nav.Link className='ml-4 d-flex align-items-center' href='/search'>
-                            <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/search"}>
-                                <SearchIcon className='mr-2' />
-                                Search
-                            </NavLink>
-                        </Nav.Link>
-                        <Nav.Link className='ml-4 d-flex align-items-center' href='/offers'>
-                            <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/offers"}>
-                                <DiscountIcon className='mr-2' />
-                                Offers
-                            </NavLink>
-                        </Nav.Link>
-                        <Nav.Link className='ml-4 d-flex align-items-center' href='/help'>
-                            <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/help"}>
-                                <InfoIcon className='mr-2' />
-                                Help
-                            </NavLink>
-                        </Nav.Link>
-                        <Nav.Link className='ml-4 d-flex align-items-center' href=''>
-                            <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/auth?mode:signin"}>
-                                <AccountCircleIcon className='mr-2' />
-                                Sign In
-                            </NavLink>
-                        </Nav.Link>
-                        <Nav.Link className='ml-4 d-flex align-items-center' href=''>
-                            <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/checkout"}>
-                                <IconButton aria-label="cart" className='mr-2'>
-                                    <StyledBadge badgeContent={11} max={9} color="secondary">
-                                        <ShoppingCartIcon />
-                                    </StyledBadge>
-                                </IconButton>
-                                Cart
-                            </NavLink>
-                        </Nav.Link>
-                    </Nav>
+                        <Nav className="ml-auto">
+                            <Nav.Link className='ml-4 d-flex align-items-center' href='/search'>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/search"}>
+                                    <SearchIcon className='mr-2' />
+                                    Search
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href='/offers'>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/offers"}>
+                                    <DiscountIcon className='mr-2' />
+                                    Offers
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href='/help'>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/help"}>
+                                    <InfoIcon className='mr-2' />
+                                    Help
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href=''>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/auth?mode:signin"}>
+                                    <AccountCircleIcon className='mr-2' />
+                                    Sign In
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href=''>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/checkout"}>
+                                    <IconButton aria-label="cart" className='mr-2'>
+                                        <StyledBadge badgeContent={11} max={9} color="secondary">
+                                            <ShoppingCartIcon />
+                                        </StyledBadge>
+                                    </IconButton>
+                                    Cart
+                                </NavLink>
+                            </Nav.Link>
+                        </Nav>
                     </Navbar.Collapse>
                 </div>
+            </Navbar> */}
+            <Navbar expand="lg" bg="light" variant="light" className=' px-5' style={{boxShadow: '0px 3px 8px rgba(0, 0, 0, 0.24)'}}>
+                <Container >
+                    <Navbar.Brand href="" >
+                        <NavLink to={'/'} className='d-flex flex-row align-items-center'>
+                            <img src={logo} style={{ 'width': '43px' }} />
+                            <Typography
+                                className='ml-2'
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                sx={{
+                                    mr: 2,
+                                    display: { md: 'flex' },
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'Black',
+                                    textDecoration: 'none',
+                                }}
+                            >ZOOP</Typography>
+                        </NavLink>
+                    </Navbar.Brand>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                        <Nav className="me-auto">
+                            
+                        </Nav>
+                        <Nav>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href='/search'>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/search"}>
+                                    <SearchIcon className='mr-2' />
+                                    Search
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href='/offers'>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/offers"}>
+                                    <DiscountIcon className='mr-2' />
+                                    Offers
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href='/help'>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/help"}>
+                                    <InfoIcon className='mr-2' />
+                                    Help
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href=''>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/auth?mode:signin"}>
+                                    <AccountCircleIcon className='mr-2' />
+                                    Sign In
+                                </NavLink>
+                            </Nav.Link>
+                            <Nav.Link className='ml-4 d-flex align-items-center' href=''>
+                                <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/checkout"}>
+                                    <IconButton aria-label="cart" className='mr-2'>
+                                        <StyledBadge badgeContent={11} max={9} color="secondary">
+                                            <ShoppingCartIcon />
+                                        </StyledBadge>
+                                    </IconButton>
+                                    Cart
+                                </NavLink>
+                            </Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Container>
             </Navbar>
         </div >
     )

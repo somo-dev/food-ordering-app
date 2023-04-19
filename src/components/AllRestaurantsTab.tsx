@@ -37,7 +37,7 @@ const AllRestaurantsTab = ({ allRestaurantDetails, deviceType }: any) => {
                 </Box>
                 <TabPanel value={activeTabKey} index={'allRestaurants'}>
                     <Container className='restaurant-content'>
-                        <Row className='d-flex justify-content-between'>
+                        <Row className='d-flex justify-content-center'>
                             {cards?.slice(0,16).map((restaurantData: any, index: number) => {
                                 return (
                                     <RestaurantCard key={index} restaurantData={restaurantData} />

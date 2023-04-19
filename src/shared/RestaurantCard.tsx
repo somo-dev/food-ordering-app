@@ -9,7 +9,7 @@ const RestaurantCard = ({ restaurantData }: any) => {
     return (
         // <Container className='restaurant-content'>
         //     <Row className='d-flex justify-content-between'>
-        <Link to={restaurantData?.data?.data?.uuid} className='d-flex justify-content-center'>
+        <Link to={restaurantData?.data?.data?.uuid} className='d-flex justify-content-center' style={{ width: 'auto' }}>
             <Col className='d-flex justify-content-center mb-5' md={6} lg={4} xl={3}>
                 <Card sx={{ maxWidth: 276, minWidth: 276 }}>
                     <CardActionArea>
@@ -59,11 +59,13 @@ const RestaurantCard = ({ restaurantData }: any) => {
                             </Row>
                             {restaurantData?.data?.data.aggregatedDiscountInfo &&
                                 <><Divider />
-                                    <Row className='px-3 pt-3'>
-                                        <DiscountIcon fontSize="small" sx={{ color: '#8A584B' }} className='mr-2' />
-                                        <Typography className='offer-text' gutterBottom variant="subtitle2" component="div">
-                                            {restaurantData?.data?.data.aggregatedDiscountInfo?.header}
-                                        </Typography>
+                                    <Row className='d-flex px-3 pt-3'>
+                                        <Col>
+                                            <DiscountIcon fontSize="small" sx={{ color: '#8A584B' }} className='mr-2' />
+                                            <Typography className='offer-text' gutterBottom variant="subtitle2" component="span">
+                                                {restaurantData?.data?.data.aggregatedDiscountInfo?.header}
+                                            </Typography>
+                                        </Col>
                                     </Row>
                                 </>}
                         </CardContent>

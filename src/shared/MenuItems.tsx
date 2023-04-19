@@ -20,6 +20,7 @@ const MenuItems = ({ menuItems, ...props }: any) => {
     };
   const modalHandler = () => {
     setcurrentFoodItemInfo({
+      id: menuItems?.card?.info?.id,
       title: menuItems?.card?.info?.name,
       price: menuItems?.card?.info?.price,
       itemAttribute: menuItems?.card?.info?.itemAttribute,
@@ -66,7 +67,8 @@ const MenuItems = ({ menuItems, ...props }: any) => {
           </Col>
         </Row>
         <Divider />
-        {menuItems?.card?.info?.addons?.length && <AdditionalMenuOptionsModal       //where there are addon options in the  menu
+        {menuItems?.card?.info?.addons?.length && <AdditionalMenuOptionsModal
+          id={currentFoodItemInfo.id}     //where there are addon options in the  menu
           title={currentFoodItemInfo.title}
           price={currentFoodItemInfo.price}
           itemAttribute={currentFoodItemInfo.itemAttribute}
@@ -75,6 +77,7 @@ const MenuItems = ({ menuItems, ...props }: any) => {
           show={showModal}
           onHide={() => setShowModal(false)} />}
         {!menuItems?.card?.info?.addons?.length && <AdditionalMenuOptionsModal  //where there are no addon options
+          id={currentFoodItemInfo.id}    
           title={currentFoodItemInfo.title}                                     // we need to add directly to cart
           itemAttribute={currentFoodItemInfo.itemAttribute}
           addons={currentFoodItemInfo.addons}
@@ -86,25 +89,25 @@ const MenuItems = ({ menuItems, ...props }: any) => {
     {                                           //for those accordions that have sub-menu items
       !menuItems?.card &&
       <Col xs={12}>
-          <div>
-            <Accordion className="mb-3" onChange={handleChange(menuItems?.title)}>
-              <AccordionSummary expandIcon={<ExpandMoreIcon />} id={menuItems?.title}>
-                <Typography className='mr-2'><b>{menuItems?.title}</b></Typography>
-                <Typography> <b>({menuItems?.itemCards?.length})</b></Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
+        <div>
+          <Accordion className="mb-3" onChange={handleChange(menuItems?.title)}>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} id={menuItems?.title}>
+              <Typography className='mr-2'><b>{menuItems?.title}</b></Typography>
+              <Typography> <b>({menuItems?.itemCards?.length})</b></Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography>
 
-                  {menuItems?.itemCards?.map((menuCategoryItem: any, index: number) => {
-                    return (
-                      <SubMenuItems key={index} subMenuItems={menuCategoryItem} />
-                    )
-                  })}
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
+                {menuItems?.itemCards?.map((menuCategoryItem: any, index: number) => {
+                  return (
+                    <SubMenuItems key={index} subMenuItems={menuCategoryItem} />
+                  )
+                })}
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
 
-          </div>
+        </div>
       </Col>}
   </>
   )

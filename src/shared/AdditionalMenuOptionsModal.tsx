@@ -3,8 +3,8 @@ import { Button, Form, Modal } from 'react-bootstrap'
 import VegClassifierIcon from './VegClassifierIcon'
 import { Divider } from '@mui/material';
 
-const AdditionalMenuOptionsModal = ({ title, price, itemAttribute, variants, addons, ...props }: any) => {
-      console.log(title, price, itemAttribute, variants, addons);
+const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants, addons, ...props }: any) => {
+      console.log(id, title, price, itemAttribute, variants, addons);
       return (
             <Modal
                   {...props}
@@ -35,7 +35,7 @@ const AdditionalMenuOptionsModal = ({ title, price, itemAttribute, variants, add
                                           )
                                     })}
                               </div>}
-                              {!variants?.pricingModels &&
+                        {!variants?.pricingModels &&
                               <div className='ml-3 mb-3'>
                                     <span style={{ fontSize: '15px' }}>Price - </span>
                                     <span className='text-info'><b>{`₹ ${price / 100}`}</b></span>
@@ -77,6 +77,7 @@ const AdditionalMenuOptionsModal = ({ title, price, itemAttribute, variants, add
                                                             <div className='d-flex align-items-center'>
                                                                   <VegClassifierIcon isVeg={choice.isVeg} />
                                                                   <Form.Check
+                                                                        value={choice.price / 100}
                                                                         key={choice.id}
                                                                         className='my-3 ml-3'
                                                                         inline

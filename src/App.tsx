@@ -2,6 +2,8 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-multi-carousel/lib/styles.css';
 import MainNavigation from './components/MainNavigation';
 import FeaturedCarousel from './components/FeaturedCarousel';
 import UAParser from "ua-parser-js";
