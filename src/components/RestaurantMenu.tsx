@@ -27,7 +27,7 @@ const RestaurantMenu = () => {
                   )
             })
             }
-            <Divider variant="middle" sx={{ borderStyle: 'dashed' }} />
+            <Divider variant="middle" sx={{ borderStyle: 'dashed'}} />
             {foodOptionsDetails?.filter((foodOptions: any) => {
                   return (foodOptions?.info?.uuid === restId);
             }).map((foodOptions: any, index: number) => {
