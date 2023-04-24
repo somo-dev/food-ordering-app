@@ -18,11 +18,13 @@ import RestaurantMenu from './components/RestaurantMenu';
 
 function App() {
   const routes = createBrowserRouter([
-    {path: '/', element: <Root />, children: [
-      {index: true, element: <AllRestaurantsTab />},
-      {path: ':restId', element: <RestaurantMenu />},
-      {path: 'search', element: <SearchRestaurantsScreen />}
-    ]}
+    {
+      path: '/', element: <Root />, children: [
+        { index: true, element: <AllRestaurantsTab /> },
+        { path: ':restId', element: <RestaurantMenu /> },
+        { path: 'search', element: <SearchRestaurantsScreen /> }
+      ]
+    }
   ])
   return (
     <div className="App">
