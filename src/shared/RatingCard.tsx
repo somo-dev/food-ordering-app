@@ -13,6 +13,7 @@ const RatingCard = ({ rating, totalRatings }: any) => {
                                     {rating}
                               </Typography>
                         </div>
+                        <Divider variant='middle' sx={{ borderWidth: 1, borderStyle: 'dashed', borderColor: '#808080' }} />
 
                         <Divider />
                         <div className='d-flex justify-content-center align-items-center'>

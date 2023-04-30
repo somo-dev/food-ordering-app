@@ -7,6 +7,8 @@ import { useParams } from 'react-router-dom'
 import { Divider } from '@mui/material'
 import OffersSection from '../shared/OffersSection'
 import Menu from './Menu'
+import FloatCart from '../shared/FloatCart'
+
 const RestaurantMenu = () => {
       const { restId } = useParams();
       // useEffect(()=> {
@@ -27,7 +29,8 @@ const RestaurantMenu = () => {
                   )
             })
             }
-            <Divider variant="middle" sx={{ borderStyle: 'dashed'}} />
+            <Divider variant='middle' sx={{ borderWidth: 1, margin: '2px', borderStyle: 'dashed', borderColor: '#808080' }} />
+
             {foodOptionsDetails?.filter((foodOptions: any) => {
                   return (foodOptions?.info?.uuid === restId);
             }).map((foodOptions: any, index: number) => {
@@ -40,7 +43,8 @@ const RestaurantMenu = () => {
                   )
             })
             }
-            <Divider variant="middle" />
+            <Divider variant='middle' sx={{ borderWidth: 1, margin: '2px', borderStyle: 'dashed', borderColor: '#808080' }} />
+
             <Container>
                   {foodOptionsDetails?.filter((foodOptions: any) => {
                         return (foodOptions?.info?.uuid === restId);
@@ -55,6 +59,7 @@ const RestaurantMenu = () => {
                   })
                   }
             </Container>
+            <FloatCart />
       </div>
       )
 }
