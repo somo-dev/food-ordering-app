@@ -1,12 +1,14 @@
 import { Box, Card, CardContent, Typography } from '@mui/material';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Image } from 'semantic-ui-react';
 import { imageStore } from '../assets/data/constants';
+import useMouseClickEvent from '../hooks/useMouseClickEvent';
 
 const OfferCard = ({ offer }: any) => {
+      const mouseDown = useMouseClickEvent();
       const card = (
             <>
-                  <CardContent className='mx-auto'>
+                  <CardContent className='mx-auto' style={{ cursor: mouseDown ? "grabbing" : "grab", userSelect: 'none' }}>
                         <div className='d-flex justify-content-center align-items-center text-success'>
                               <Image className='mr-2'
                                     draggable={false}

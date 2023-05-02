@@ -5,8 +5,10 @@ import { topCarouselBannersProps } from '../interfaces/interfaces'
 import { Image } from 'semantic-ui-react';
 import '../component_styles/featuredCarousel.scss';
 import { responsive } from '../assets/data/constants';
+import useMouseClickEvent from '../hooks/useMouseClickEvent';
 
 const FeaturedCarousel = ({ deviceType }: any) => {
+  const mouseDown = useMouseClickEvent();
   const topCarouselBanners = [
     {
       id: 0,
@@ -52,7 +54,7 @@ const FeaturedCarousel = ({ deviceType }: any) => {
                         <div key={image.id} className="d-flex align-items-center justify-content-center mx-3 h-100">
                           <Image
                             draggable={false}
-                            style={{ maxWidth: '270px', boxShadow: 'rgba(0, 0, 0, 0.1) -4px 9px 25px -6px' }}
+                            style={{ maxWidth: '270px', boxShadow: 'rgba(0, 0, 0, 0.1) -4px 9px 25px -6px',cursor: mouseDown ? "grabbing" : "grab", userSelect: 'none' }}
                             src={image.imgUrl}
                           />
                         </div>

@@ -10,10 +10,12 @@ import { imageStore } from '../assets/data/constants';
 import SearchSuggestions from './SearchSuggestions';
 import { useEffect, useRef, useState } from 'react';
 import { suggestionsCuisines } from '../assets/data/cuisinesSuggestions';
+import useMouseClickEvent from '../hooks/useMouseClickEvent';
 
 const SearchRestaurantsScreen = () => {
     const [searchQuery, setSearchQuery] = useState('_____________');
     const [suggestions, setSuggestions] = useState([{}]);
+    const mouseDown = useMouseClickEvent();
     const loadSuggestions = (suggestions: string) => {
         setSearchQuery(suggestions);
         console.log(searchQuery);
@@ -47,7 +49,7 @@ const SearchRestaurantsScreen = () => {
                                         <div onClick={() => loadSuggestions(image?.suggestions)} key={image.id} className="d-flex align-items-center justify-content-center mx-3 h-100">
                                             <Image
                                                 draggable={false}
-                                                style={{ maxWidth: '130px', cursor: 'pointer' }}
+                                                style={{ maxWidth: '130px', cursor: mouseDown ? "grabbing" : "pointer", userSelect: 'none' }}
                                                 src={`${imageStore}${image.imageId}`}
                                             />
                                         </div>
