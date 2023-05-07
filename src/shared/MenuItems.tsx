@@ -22,11 +22,12 @@ const MenuItems = ({ menuItems, ...props }: any) => {
     setcurrentFoodItemInfo({
       id: menuItems?.card?.info?.id,
       title: menuItems?.card?.info?.name,
-      price: menuItems?.card?.info?.price,
+      price: (menuItems?.card?.info?.addons || menuItems?.card?.info?.variantsV2?.variantGroups) ? menuItems?.card?.info?.price : menuItems?.card?.info?.price / 100,
       itemAttribute: menuItems?.card?.info?.itemAttribute,
-      addons: menuItems?.card?.info?.addons,
-      variants: menuItems?.card?.info?.variantsV2
+      addons: menuItems?.card?.info?.addons ? menuItems?.card?.info?.addons : "",
+      variants: menuItems?.card?.info?.variantsV2?.variantGroups ? menuItems?.card?.info?.variantsV2 : ""
     })
+    console.log(currentFoodItemInfo);
     setShowModal(!showModal);
 
   }
@@ -67,7 +68,7 @@ const MenuItems = ({ menuItems, ...props }: any) => {
           </Col>
         </Row>
         <Divider />
-        {menuItems?.card?.info?.addons?.length && <AdditionalMenuOptionsModal
+        {menuItems?.card?.info?.addons && <AdditionalMenuOptionsModal
           id={currentFoodItemInfo.id}     //where there are addon options in the  menu
           title={currentFoodItemInfo.title}
           price={currentFoodItemInfo.price}
@@ -76,14 +77,22 @@ const MenuItems = ({ menuItems, ...props }: any) => {
           variants={currentFoodItemInfo.variants}
           show={showModal}
           onHide={() => setShowModal(false)} />}
-        {!menuItems?.card?.info?.addons?.length && <AdditionalMenuOptionsModal  //where there are no addon options
-          id={currentFoodItemInfo.id}    
-          title={currentFoodItemInfo.title}                                     // we need to add directly to cart
+        {menuItems?.card?.info?.variantsV2?.variantGroups?.length && <AdditionalMenuOptionsModal
+          id={currentFoodItemInfo.id}     //where there are variations options in the  menu
+          title={currentFoodItemInfo.title}
+          price={currentFoodItemInfo.price}
           itemAttribute={currentFoodItemInfo.itemAttribute}
           addons={currentFoodItemInfo.addons}
           variants={currentFoodItemInfo.variants}
           show={showModal}
           onHide={() => setShowModal(false)} />}
+        {/* {!menuItems?.card?.info?.addons?.length &&   //where there are no addon options
+          setcurrentFoodItemInfo({
+            id: menuItems?.card?.info?.id,
+            title: menuItems?.card?.info?.name,
+            price: menuItems?.card?.info?.price,
+            itemAttribute: menuItems?.card?.info?.itemAttribute,
+          })} */}
       </Container>
     }
     {                                           //for those accordions that have sub-menu items

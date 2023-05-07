@@ -1,10 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Form, Modal } from 'react-bootstrap'
 import VegClassifierIcon from './VegClassifierIcon'
 import { Divider } from '@mui/material';
+import { useForm } from 'react-hook-form';
 
 const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants, addons, ...props }: any) => {
-      console.log(id, title, price, itemAttribute, variants, addons);
+      // console.log(id, title, price, itemAttribute, variants, addons);
+      const [currentFoodItemInfo, setcurrentFoodItemInfo] = useState<any>({});
+      const {
+            register,
+            handleSubmit,
+            formState: { errors },
+      } = useForm();
+      const submitHandler = (data: any) => {
+            setcurrentFoodItemInfo((prev: any) => {
+                  return {
+                        ...prev,
+                        id: id,
+                        title: title,
+                        price: price ? data?.choices ? (price / 100 + data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0))
+                              : parseInt(data?.variations)
+                              : (data?.choices?.length && data?.variations) ? parseInt(data?.variations) + data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0)
+                                    : parseInt(data?.variations),
+                        itemAttribute: itemAttribute,
+                  }
+
+            })
+            console.log(data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0));
+            console.log(data);
+            console.log(currentFoodItemInfo);
+      };
       return (
             <Modal
                   {...props}
@@ -40,7 +65,7 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
                                     <span style={{ fontSize: '15px' }}>Price - </span>
                                     <span className='text-info'><b>{`₹ ${price / 100}`}</b></span>
                               </div>}
-                        <Form>
+                        <Form onSubmit={handleSubmit(submitHandler)}>
                               {variants?.variantGroups?.map((variantGroup: any) => {
                                     return (
                                           <div key={variantGroup.groupId}>
@@ -49,16 +74,17 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
                                                 </Divider>
                                                 {variantGroup?.variations?.map((variation: any) => {
                                                       return (
-                                                            <div className='d-flex align-items-center'>
+                                                            <div key={variation.id} className='d-flex align-items-center'>
                                                                   <VegClassifierIcon isVeg={0} />
                                                                   <Form.Check
-                                                                        key={variation.id}
+                                                                        value={variation.price}
                                                                         className='my-3 ml-3'
                                                                         // inline
                                                                         label={`${variation.name}`}
-                                                                        name='group-1'
+                                                                        // name='variations'
                                                                         type='radio'
-                                                                        id={`inline-${variation.id}-1`} />
+                                                                        id={`${variation.id}`}
+                                                                        {...register("variations")} />
                                                                   <span className='text-secondary ml-2'>₹ {variation.price}</span>
                                                             </div>
                                                       )
@@ -66,25 +92,25 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
                                                 {/* <Divider variant="middle" /> */}
                                           </div>)
                               })}
-                              {addons?.map((addon: any) => {
+                              {addons && addons?.map((addon: any) => {
                                     return (
                                           <div key={addon.groupId} className=''>
                                                 <Divider textAlign="left" className='mt-2' variant="middle">
                                                       <h5 className='text-danger'>{addon.groupName}</h5>
                                                 </Divider>
-                                                {addon.choices?.map((choice: any) => {
+                                                {addon?.choices?.map((choice: any) => {
                                                       return (
-                                                            <div className='d-flex align-items-center'>
+                                                            <div key={choice.id} className='d-flex align-items-center'>
                                                                   <VegClassifierIcon isVeg={choice.isVeg} />
                                                                   <Form.Check
                                                                         value={choice.price / 100}
-                                                                        key={choice.id}
                                                                         className='my-3 ml-3'
                                                                         inline
                                                                         label={choice.name}
-                                                                        name='group-2'
+                                                                        // name='choices'
                                                                         type='checkbox'
-                                                                        id={`inline-${choice.id}-1`} />
+                                                                        id={`${choice.id}`}
+                                                                        {...register("choices")} />
                                                                   <span className='text-secondary'>₹ {choice.price / 100}</span>
                                                             </div>
                                                       )
@@ -95,7 +121,7 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
                         </Form>
                   </Modal.Body>
                   <Modal.Footer>
-                        <Button variant="outline-success">Add to cart</Button>
+                        <Button type='submit' onClick={handleSubmit(submitHandler)} variant="outline-success">Add to cart</Button>
                         <Button variant="outline-danger" onClick={props.onHide}>Close</Button>
                   </Modal.Footer>
             </Modal>
