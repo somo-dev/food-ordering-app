@@ -166,10 +166,10 @@ const CardsPaymentTab = ({ totalAmount }: any) => {
                         <Row className='d-flex align-items-center'>
                             <Col xs={12} className='d-flex'>
                                 <Button type='submit' variant="outlined" size="large" color="success">
-                                    <IconButton aria-label="fingerprint" color="success">
+                                    {/* <IconButton aria-label="fingerprint" color="success"> */}
                                         <Fingerprint />
-                                    </IconButton>
-                                    <b>Pay ₹ {totalAmount + 2 + parseFloat((totalAmount / 11).toFixed(1))}</b>
+                                    {/* </IconButton> */}
+                                    <b className='ml-2 my-2'>Pay ₹ {totalAmount + 2 + parseFloat((totalAmount / 11).toFixed(1))}</b>
                                 </Button>
                             </Col>
                         </Row>

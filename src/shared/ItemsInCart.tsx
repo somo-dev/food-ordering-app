@@ -8,7 +8,7 @@ import { imageStore } from '../assets/data/constants';
 const ItemsInCart = ({ items, cartQuantity, totalAmount }: any) => {
     return (
         <>
-            <Typography><h5><b>Cart Items</b></h5></Typography>
+            <h5><b>Cart Items</b></h5>
             <Divider sx={{ borderWidth: 1, marginY: '20px', borderStyle: 'solid', borderColor: '#808080' }} />
             {items.length && items?.filter((item: any) => item.id !== "").map((item: any) => {
                 return (

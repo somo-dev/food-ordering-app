@@ -102,11 +102,9 @@ const UPIPaymentsTab = ({ totalAmount }: any) => {
             </Row>
             <Row>
                 <Col xs={12} className='d-flex'>
-                    <Button variant="outlined" size="small" color="success">
-                        <IconButton aria-label="fingerprint" color="success">
+                    <Button variant="outlined" size="large" color="success">
                             <Fingerprint />
-                        </IconButton>
-                        <b>Verify and Pay ₹ {totalAmount + 2 + parseFloat((totalAmount / 11).toFixed(1))}</b>
+                        <b className='ml-2 my-2'>Verify and Pay ₹ {totalAmount + 2 + parseFloat((totalAmount / 11).toFixed(1))}</b>
                     </Button>
                 </Col>
             </Row>
