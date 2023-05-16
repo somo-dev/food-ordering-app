@@ -10,7 +10,9 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link, NavLink } from 'react-router-dom';
 import '../component_styles/navBar.scss'
+import { useSelector } from 'react-redux';
 const MainNavigation = () => {
+    const totalQuantity = useSelector((state: any) => state.cart.totalQuantity);
     return (
         <div>
             {/* <Navbar collapseOnSelect bg="light" expand='lg' variant="light">
@@ -131,7 +133,7 @@ const MainNavigation = () => {
                             <Nav.Link className='ml-4 d-flex align-items-center' href=''>
                                 <NavLink className={({ isActive }: any) => isActive ? "active d-flex align-items-center" : "d-flex align-items-center"} to={"/checkout"}>
                                     <IconButton aria-label="cart" className='mr-2'>
-                                        <StyledBadge badgeContent={11} max={9} color="secondary">
+                                        <StyledBadge badgeContent={totalQuantity} max={9} color="secondary">
                                             <ShoppingCartIcon />
                                         </StyledBadge>
                                     </IconButton>

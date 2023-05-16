@@ -88,7 +88,7 @@ export default function Menu({ menuCategory }: any) {
                                                       <AccordionDetails>
                                                             {menuItems?.card?.card?.itemCards?.map((menuCategoryItem: any, index: number) => {
                                                                   return (
-                                                                        <MenuItems key={index} menuItems={menuCategoryItem} />
+                                                                        <MenuItems key={index} restaurantName={menuCategory.restName} restauirantLocation={menuCategory.locality} menuItems={menuCategoryItem} />
                                                                   )
                                                             })}
                                                       </AccordionDetails>

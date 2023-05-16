@@ -9,6 +9,8 @@ import '../component_styles/restaurantMenu.scss';
 import RatingStarsSection from './RatingStarsSection';
 import AdditionalMenuOptionsModal from './AdditionalMenuOptionsModal';
 import VegClassifierIcon from './VegClassifierIcon';
+import { useDispatch } from 'react-redux';
+import { cartActions } from '../store/cart-logic';
 
 const MenuItems = ({ menuItems, ...props }: any) => {
   const [expanded, setExpanded] = useState<string | false>('Recommended');
@@ -18,17 +20,34 @@ const MenuItems = ({ menuItems, ...props }: any) => {
     (panel: string) => (event: React.SyntheticEvent, newExpanded: boolean) => {
       setExpanded(newExpanded ? panel : false);
     };
+  const dispatch = useDispatch();
   const modalHandler = () => {
     setcurrentFoodItemInfo({
       id: menuItems?.card?.info?.id,
+      imageId: menuItems?.card?.info?.imageId ? menuItems?.card?.info?.imageId : `${imageStore}Icons-Autosuggest/AS_Dish_3x`,
       title: menuItems?.card?.info?.name,
-      price: (menuItems?.card?.info?.addons || menuItems?.card?.info?.variantsV2?.variantGroups) ? menuItems?.card?.info?.price : menuItems?.card?.info?.price / 100,
+      restName: props.restaurantName,
+      location: props.restauirantLocation,
+      price: (menuItems?.card?.info?.addons || menuItems?.card?.info?.variantsV2?.variantGroups) ? menuItems?.card?.info?.price / 100 : menuItems?.card?.info?.price / 100,
       itemAttribute: menuItems?.card?.info?.itemAttribute,
       addons: menuItems?.card?.info?.addons ? menuItems?.card?.info?.addons : "",
       variants: menuItems?.card?.info?.variantsV2?.variantGroups ? menuItems?.card?.info?.variantsV2 : ""
     })
     console.log(currentFoodItemInfo);
     setShowModal(!showModal);
+  }
+  const addTocarthandler = () => {
+    dispatch(
+      cartActions.addItemToCart({
+        id: menuItems?.card?.info?.id,
+        imageId: menuItems?.card?.info?.imageId ? menuItems?.card?.info?.imageId : `${imageStore}Icons-Autosuggest/AS_Dish_3x`,
+        title: menuItems?.card?.info?.name,
+        restName: props.restaurantName,
+        location: props.restauirantLocation,
+        price: (menuItems?.card?.info?.addons || menuItems?.card?.info?.variantsV2?.variantGroups) ? menuItems?.card?.info?.price / 100 : menuItems?.card?.info?.price / 100,
+        itemAttribute: menuItems?.card?.info?.itemAttribute
+      })
+    )
 
   }
   return (<>
@@ -62,14 +81,20 @@ const MenuItems = ({ menuItems, ...props }: any) => {
               />}
           </Col>
           <Col xs={12} className='d-flex justify-content-end align-items-center pr-5'>
-            <Button onClick={modalHandler} variant="contained" disableElevation sx={{ color: '#00AF73', backgroundColor: 'white', border: 1, height: '30px', width: '80px' }} className='add-items-button'>
-              <b>Add</b>
-            </Button>
+            {(menuItems?.card?.info?.addons || menuItems?.card?.info?.addons) &&
+              <Button onClick={modalHandler} variant="contained" disableElevation sx={{ color: '#00AF73', backgroundColor: 'white', border: 1, height: '30px', width: '80px' }} className='add-items-button'>
+                <b>Add</b>
+              </Button>}
+            {!(menuItems?.card?.info?.addons || menuItems?.card?.info?.addons) &&
+              <Button onClick={addTocarthandler} variant="contained" disableElevation sx={{ color: '#00AF73', backgroundColor: 'white', border: 1, height: '30px', width: '80px' }} className='add-items-button'>
+                <b>Add</b>
+              </Button>}
           </Col>
         </Row>
         <Divider />
         {menuItems?.card?.info?.addons && <AdditionalMenuOptionsModal
           id={currentFoodItemInfo.id}     //where there are addon options in the  menu
+          imageId={currentFoodItemInfo.imageId}
           title={currentFoodItemInfo.title}
           price={currentFoodItemInfo.price}
           itemAttribute={currentFoodItemInfo.itemAttribute}
@@ -77,7 +102,7 @@ const MenuItems = ({ menuItems, ...props }: any) => {
           variants={currentFoodItemInfo.variants}
           show={showModal}
           onHide={() => setShowModal(false)} />}
-        {menuItems?.card?.info?.variantsV2?.variantGroups?.length && <AdditionalMenuOptionsModal
+        {menuItems?.card?.info?.addons && <AdditionalMenuOptionsModal
           id={currentFoodItemInfo.id}     //where there are variations options in the  menu
           title={currentFoodItemInfo.title}
           price={currentFoodItemInfo.price}

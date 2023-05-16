@@ -13,12 +13,14 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
             formState: { errors },
       } = useForm();
       const submitHandler = (data: any) => {
+            if (data?.choices === false) data?.choices == 0;
+            if (data?.variations === null) data?.variations == 0;
             setcurrentFoodItemInfo((prev: any) => {
                   return {
                         ...prev,
                         id: id,
                         title: title,
-                        price: price ? data?.choices ? (price / 100 + data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0))
+                        price: price ? data?.choices ? (price + data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0))
                               : parseInt(data?.variations)
                               : (data?.choices?.length && data?.variations) ? parseInt(data?.variations) + data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0)
                                     : parseInt(data?.variations),
@@ -26,7 +28,7 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
                   }
 
             })
-            console.log(data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0));
+            // console.log(data?.choices?.map((data: string) => parseInt(data)).reduce((x: number, y: number) => x + y, 0));
             console.log(data);
             console.log(currentFoodItemInfo);
       };
@@ -63,28 +65,32 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
                         {!variants?.pricingModels &&
                               <div className='ml-3 mb-3'>
                                     <span style={{ fontSize: '15px' }}>Price - </span>
-                                    <span className='text-info'><b>{`₹ ${price / 100}`}</b></span>
+                                    <span className='text-info'><b>{`₹ ${price}`}</b></span>
                               </div>}
-                        <Form onSubmit={handleSubmit(submitHandler)}>
+                        <Form>
                               {variants?.variantGroups?.map((variantGroup: any) => {
                                     return (
                                           <div key={variantGroup.groupId}>
                                                 <Divider textAlign="left" className='mt-2' variant="middle">
                                                       <h5 className='text-danger'>{variantGroup?.name}</h5>
+                                                      {errors.variations && <span className='text-danger'>(select any one to proceed)</span>}
                                                 </Divider>
                                                 {variantGroup?.variations?.map((variation: any) => {
                                                       return (
                                                             <div key={variation.id} className='d-flex align-items-center'>
                                                                   <VegClassifierIcon isVeg={0} />
                                                                   <Form.Check
-                                                                        value={variation.price}
+                                                                        defaultValue={0}
+                                                                        value={variation.price ? variation.price : 0}
                                                                         className='my-3 ml-3'
                                                                         // inline
                                                                         label={`${variation.name}`}
                                                                         // name='variations'
                                                                         type='radio'
                                                                         id={`${variation.id}`}
-                                                                        {...register("variations")} />
+                                                                        {...register("variations", {
+                                                                              required: true
+                                                                        })} />
                                                                   <span className='text-secondary ml-2'>₹ {variation.price}</span>
                                                             </div>
                                                       )
@@ -103,7 +109,8 @@ const AdditionalMenuOptionsModal = ({ id, title, price, itemAttribute, variants,
                                                             <div key={choice.id} className='d-flex align-items-center'>
                                                                   <VegClassifierIcon isVeg={choice.isVeg} />
                                                                   <Form.Check
-                                                                        value={choice.price / 100}
+                                                                        defaultValue={0}
+                                                                        value={choice.price ? choice.price / 100 : 0}
                                                                         className='my-3 ml-3'
                                                                         inline
                                                                         label={choice.name}

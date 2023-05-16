@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import SearchRestaurantsScreen from './components/SearchRestaurantsScreen';
 import Root from './components/Root';
 import RestaurantMenu from './components/RestaurantMenu';
+import CartRoute from './components/CartRoute';
 
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
       path: '/', element: <Root />, children: [
         { index: true, element: <AllRestaurantsTab /> },
         { path: ':restId', element: <RestaurantMenu /> },
-        { path: 'search', element: <SearchRestaurantsScreen /> }
+        { path: 'search', element: <SearchRestaurantsScreen /> },
+        { path: 'checkout', element: <CartRoute /> },
       ]
     }
   ])

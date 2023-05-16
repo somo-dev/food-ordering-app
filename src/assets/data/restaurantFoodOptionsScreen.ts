@@ -262,6 +262,9 @@ export const foodOptionsDetails = [
             latLong: "17.4273808,78.45210259999999"
         },
         menu: {
+            uuid: "5bc61a68-e76f-428b-bb81-da5bc19c0a46",
+            restName: "Cafe Bahar since 1973",
+            locality: "Panjagutta main road",
             cards: [
                 {
                     card: {
@@ -6473,6 +6476,9 @@ export const foodOptionsDetails = [
             latLong: "17.4273808,78.45210259999999"
         },
         menu: {
+            uuid: "3d80000d-209b-4f40-b4f1-542945fff926",
+            name: "Hilton Restaurant",
+            locality: "Panjagutta main road",
             cards: [
                 {
                     card: {
